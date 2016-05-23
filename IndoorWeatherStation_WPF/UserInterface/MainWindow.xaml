@@ -1,0 +1,84 @@
+﻿<Window x:Class="IndoorWeatherStation_WPF.UserInterface.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Weather Station" Height="327" Width="586">
+    <DockPanel
+        x:Name="DateAndTimePanel">
+        <DockPanel DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TextBlock 
+                x:Name="TimeText" 
+                Text="{Binding Time, FallbackValue=12:00}" 
+                FontFamily="Calibri" 
+                FontSize="38" 
+                Foreground="Black" 
+                VerticalAlignment="Center"/>
+
+            <TextBlock 
+                x:Name="DateText" 
+                Text="{Binding Date, FallbackValue=Thrusday  12/14/2015}" 
+                FontFamily="Calibri" 
+                FontSize="38" 
+                Foreground="Black" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"/>
+        </DockPanel>
+
+        <DockPanel x:Name="IndoorTemperaturePanel">
+            <Border BorderThickness="2" BorderBrush="Gray" DockPanel.Dock="Top">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                        <TextBlock 
+                            x:Name="IndoorTempText" 
+                            Text="{Binding IndoorTemperature, FallbackValue=71}" 
+                            FontFamily="Calibri" 
+                            FontSize="140" 
+                            Foreground="Black"/>
+
+                        <TextBlock 
+                            x:Name="IndoorHumidityText" 
+                            Text="{Binding IndoorHumidity, FallbackValue=45}" 
+                            FontFamily="Calibri" 
+                            FontSize="70" 
+                            Foreground="Black"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <TextBlock 
+                            x:Name="OutdoorTempText" 
+                            Text="{Binding OutdoorTemperature, FallbackValue=57}" 
+                            FontFamily="Calibri" 
+                            FontSize="140" 
+                            Foreground="Black"/>
+
+                        <TextBlock 
+                            x:Name="OutdoorHumidityText" 
+                            Text="{Binding OutdoorHumidity, FallbackValue=70}" 
+                            FontFamily="Calibri" 
+                            FontSize="70" 
+                            Foreground="Black"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <StackPanel
+                x:Name="Images"
+                DockPanel.Dock="Top"
+                Margin="0,1,0,0"
+                Orientation="Horizontal">
+
+                <Image x:Name="Day1" Source="/IndoorWeatherStation_WPF;component/Assets/partlycloudy.gif" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,3,0"/>
+                <Image x:Name="Day2" Source="/IndoorWeatherStation_WPF;component/Assets/partlycloudy.gif" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,3,0"/>
+                <Image x:Name="Day3" Source="/IndoorWeatherStation_WPF;component/Assets/partlycloudy.gif" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,3,0"/>
+                <Image x:Name="Day4" Source="/IndoorWeatherStation_WPF;component/Assets/partlycloudy.gif" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,3,0"/>
+                <Image x:Name="Day5" Source="/IndoorWeatherStation_WPF;component/Assets/partlycloudy.gif" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,3,0"/>
+                <Image x:Name="Day6" Source="/IndoorWeatherStation_WPF;component/Assets/partlycloudy.gif" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,3,0"/>
+                <Image x:Name="Day7" Source="/IndoorWeatherStation_WPF;component/Assets/partlycloudy.gif" Width="80" Height="80" VerticalAlignment="Bottom" Margin="0,0,3,0"/>
+            </StackPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>

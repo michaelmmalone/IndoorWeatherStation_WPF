@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndoorWeatherStation_WPF", "IndoorWeatherStation_WPF\IndoorWeatherStation_WPF.csproj", "{B3449B1D-D0E3-4502-ADAD-4AE0AA0D5CEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{36649889-4CCD-4437-AF57-2A8EBEB6C948}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3449B1D-D0E3-4502-ADAD-4AE0AA0D5CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3449B1D-D0E3-4502-ADAD-4AE0AA0D5CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3449B1D-D0E3-4502-ADAD-4AE0AA0D5CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3449B1D-D0E3-4502-ADAD-4AE0AA0D5CEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36649889-4CCD-4437-AF57-2A8EBEB6C948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36649889-4CCD-4437-AF57-2A8EBEB6C948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36649889-4CCD-4437-AF57-2A8EBEB6C948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36649889-4CCD-4437-AF57-2A8EBEB6C948}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
