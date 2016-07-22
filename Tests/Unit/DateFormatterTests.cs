@@ -13,13 +13,15 @@ namespace Tests.Unit
         public void Format_ReturnsNameOfDayFollowedByDate()
         {
             // Arrange
-            DateFormatter target = new DateFormatter();
 
             // Act
-            string result = target.Format(new DateTime(2015, 10, 12));
 
+            //TODO: used R#'s inline operation.
             // Assert
-            result.Should().Be("Monday  10/12/2015");
+            new DateFormatter()
+                .Format(new DateTime(2015, 10, 12))
+                .Should()
+                .Be("Monday  10/12/2015");
         }
     }
 }

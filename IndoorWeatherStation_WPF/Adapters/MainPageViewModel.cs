@@ -7,7 +7,7 @@ using IndoorWeatherStation_WPF.Ports;
 namespace IndoorWeatherStation_WPF.Adapters
 {
     [DebuggerDisplay("Time={time}, Date={date}")]
-    internal class MainPageViewModel : IMainPageViewModel, INotifyPropertyChanged
+    internal class MainPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

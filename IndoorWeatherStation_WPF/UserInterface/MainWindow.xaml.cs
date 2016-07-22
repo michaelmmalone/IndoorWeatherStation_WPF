@@ -32,7 +32,7 @@ namespace IndoorWeatherStation_WPF.UserInterface
             }
         }
 
-        private IMainPageViewModel viewModel;
+        private MainPageViewModel viewModel;
         private IWeatherStation weatherStation;
     }
 }

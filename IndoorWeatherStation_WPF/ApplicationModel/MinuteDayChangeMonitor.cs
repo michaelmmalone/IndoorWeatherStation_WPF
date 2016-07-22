@@ -17,7 +17,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
 
         public MinuteDayChangeMonitor(
             IDateTimeSource dateTimeSource,
-            IMinuteDayChangeMonitorStrategy monitorStrategy)
+            IMinuteDayChangeMonitorStrategy monitorStrategy)  //TODO: call a method instead.
         {
             this.dateTimeSource = dateTimeSource;
             this.monitorStrategy = monitorStrategy;

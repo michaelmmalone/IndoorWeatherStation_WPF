@@ -1,4 +1,5 @@
 ﻿using System;
+using IndoorWeatherStation_WPF.Adapters;
 
 namespace IndoorWeatherStation_WPF.Ports
 {
@@ -13,6 +14,6 @@ namespace IndoorWeatherStation_WPF.Ports
 
         void Start();
         void Stop();
-        IMainPageViewModel CreateViewModel();
+        MainPageViewModel CreateViewModel();
     }
 }

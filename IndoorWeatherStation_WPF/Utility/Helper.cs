@@ -19,11 +19,14 @@ namespace IndoorWeatherStation_WPF.Utility
 
         private static async Task DoRunOnUiThread(Action callback)
         {
-            // This works even for unit/component tests because of the test host
-            // application.
-            await Application.Current.Dispatcher.InvokeAsync(
-                callback,
-                DispatcherPriority.Background);
+            if (Application.Current != null)
+            {
+                // This works even for unit/component tests because of the test host
+                // application.
+                await Application.Current.Dispatcher.InvokeAsync(
+                    callback,
+                    DispatcherPriority.Background);
+            }
         }
     }
 }
