@@ -95,11 +95,6 @@ namespace IndoorWeatherStation_WPF.Adapters
             this.minuteDayChangeMonitor.Stop();
         }
 
-        public MainPageViewModel CreateViewModel()
-        {
-            return new MainPageViewModel(this);
-        }
-
         public void Dispose()
         {
             this.Stop();

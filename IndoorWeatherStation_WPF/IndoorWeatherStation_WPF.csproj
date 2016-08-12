@@ -67,6 +67,7 @@
     <Compile Include="ApplicationModel\MinuteDayChangeMonitor.cs" />
     <Compile Include="ApplicationModel\TimeFormatter.cs" />
     <Compile Include="ApplicationModel\WeatherMonitor.cs" />
+    <Compile Include="ApplicationModel\WeatherStationApplication.cs" />
     <Compile Include="DomainModel\WeatherData.cs" />
     <Compile Include="Ports\IDateTimeSource.cs" />
     <Compile Include="Ports\IMinuteDayChangeMonitorStrategy.cs" />

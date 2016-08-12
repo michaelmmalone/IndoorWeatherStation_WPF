@@ -1,5 +1,4 @@
 using System;
-using IndoorWeatherStation_WPF.Adapters;
 using IndoorWeatherStation_WPF.Ports;
 
 namespace Tests.Mocks
@@ -69,11 +68,6 @@ namespace Tests.Mocks
         }
 
         public void Stop()
-        {
-            throw new NotImplementedException();
-        }
-
-        public MainPageViewModel CreateViewModel()
         {
             throw new NotImplementedException();
         }

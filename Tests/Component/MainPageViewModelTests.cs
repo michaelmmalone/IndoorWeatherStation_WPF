@@ -1,8 +1,7 @@
 ﻿using System;
 using FluentAssertions;
+using IndoorWeatherStation_WPF.Adapters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tests.Fixtures;
-using Tests.Helper;
 
 namespace Tests.Component
 {
@@ -11,76 +10,61 @@ namespace Tests.Component
     {
         [TestMethod]
         [TestCategory("Component")]
-        public void MinuteChanged_SetsTime()
+        public void MinuteChanged_RaisesPropertyChangedEvent()
         {
             // Arrange
-            MainPageViewModelFixture mainPageViewModelFixture = new MainPageViewModelFixture();
+            MainPageViewModel classUnderTest = new MainPageViewModel();
             bool eventRaised = false;
-            bool wrongEventRaised = false;
 
-            mainPageViewModelFixture.Target.PropertyChanged += (sender, args) =>
+            classUnderTest.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "Time")
                 {
                     eventRaised = true;
                 }
-
-                if (args.PropertyName == "Date")
-                {
-                    wrongEventRaised = true;
-                }
             };
 
             // Act
-            mainPageViewModelFixture.SignalMinuteHasChanged();
+            classUnderTest.Time = new DateTime(2016, 6, 10, 8, 35, 0).ToLongTimeString();
 
             // Assert
             eventRaised.Should().BeTrue();
-            wrongEventRaised.Should().BeFalse();
-            mainPageViewModelFixture.Target.Time.Should().Contain(DateTime.Now.Minute.ToString());
+            classUnderTest.Time.Should().Be("8:35:00 AM");
         }
 
         [TestMethod]
         [TestCategory("Component")]
-        public void DayChanged_SetsDate()
+        public void DayChanged_RaisesPropertyChangedEvent()
         {
             // Arrange
-            MainPageViewModelFixture mainPageViewModelFixture = new MainPageViewModelFixture();
+            MainPageViewModel classUnderTest = new MainPageViewModel();
             bool eventRaised = false;
-            bool wrongEventRaised = false;
 
-            mainPageViewModelFixture.Target.PropertyChanged += (sender, args) =>
+            classUnderTest.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "Date")
                 {
                     eventRaised = true;
                 }
-
-                if (args.PropertyName == "Time")
-                {
-                    wrongEventRaised = true;
-                }
             };
 
             // Act
-            mainPageViewModelFixture.SignalDayHasChanged();
+            classUnderTest.Date = new DateTime(2016, 6, 10, 8, 35, 0).ToLongDateString();
 
             // Assert
             eventRaised.Should().BeTrue();
-            wrongEventRaised.Should().BeFalse();
-            mainPageViewModelFixture.Target.Date.Should().Contain(DateTime.Now.Day.ToString());
+            classUnderTest.Date.Should().Be("Friday, June 10, 2016");
         }
 
         [TestMethod]
         [TestCategory("Component")]
-        public void OutdoorTemeratureChanged_SetsOutdoorTemperature()
+        public void OutdoorTemeratureChanged_RaisesPropertyChangedEvent()
         {
             // Arrange
-            MainPageViewModelFixture mainPageViewModelFixture = 
-                new MainPageViewModelFixture(expectedOutdoorTemperature: 55);
+            MainPageViewModel classUnderTest = new MainPageViewModel();
             bool eventRaised = false;
 
-            mainPageViewModelFixture.Target.PropertyChanged += (sender, args) =>
+            classUnderTest.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "OutdoorTemperature")
                 {
@@ -89,24 +73,22 @@ namespace Tests.Component
             };
 
             // Act
-            mainPageViewModelFixture.Start();
-            Waiter.Until(() => eventRaised);
+            classUnderTest.OutdoorTemperature = 45;
 
             // Assert
             eventRaised.Should().BeTrue();
-            mainPageViewModelFixture.Target.OutdoorTemperature.Should().Be(55);
+            classUnderTest.OutdoorTemperature.Should().Be(45);
         }
 
         [TestMethod]
         [TestCategory("Component")]
-        public void OutdoorHumidityChanged_SetsOutdoorHumidity()
+        public void OutdoorHumidityChanged_RaisesPropertyChangedEvent()
         {
             // Arrange
-            MainPageViewModelFixture mainPageViewModelFixture =
-                new MainPageViewModelFixture(expectedOutdoorHumidity: 55);
+            MainPageViewModel classUnderTest = new MainPageViewModel();
             bool eventRaised = false;
 
-            mainPageViewModelFixture.Target.PropertyChanged += (sender, args) =>
+            classUnderTest.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "OutdoorHumidity")
                 {
@@ -115,24 +97,22 @@ namespace Tests.Component
             };
 
             // Act
-            mainPageViewModelFixture.Start();
-            Waiter.Until(() => eventRaised);
+            classUnderTest.OutdoorHumidity = "55%";
 
             // Assert
             eventRaised.Should().BeTrue();
-            mainPageViewModelFixture.Target.OutdoorHumidity.Should().Be("55%");
+            classUnderTest.OutdoorHumidity.Should().Be("55%");
         }
 
         [TestMethod]
         [TestCategory("Component")]
-        public void IndoorTemeratureChanged_SetsIndoorTemperature()
+        public void IndoorTemeratureChanged_RaisesPropertyChangedEvent()
         {
             // Arrange
-            MainPageViewModelFixture mainPageViewModelFixture =
-                new MainPageViewModelFixture(expectedIndoorTemperature: 55);
+            MainPageViewModel classUnderTest = new MainPageViewModel();
             bool eventRaised = false;
 
-            mainPageViewModelFixture.Target.PropertyChanged += (sender, args) =>
+            classUnderTest.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "IndoorTemperature")
                 {
@@ -141,24 +121,22 @@ namespace Tests.Component
             };
 
             // Act
-            mainPageViewModelFixture.Start();
-            Waiter.Until(() => eventRaised);
+            classUnderTest.IndoorTemperature = 55;
 
             // Assert
             eventRaised.Should().BeTrue();
-            mainPageViewModelFixture.Target.IndoorTemperature.Should().Be(55);
+            classUnderTest.IndoorTemperature.Should().Be(55);
         }
 
         [TestMethod]
         [TestCategory("Component")]
-        public void IndoorHumidityChanged_SetsIndoorHumidity()
+        public void IndoorHumidityChanged_RaisesPropertyChangedEvent()
         {
             // Arrange
-            MainPageViewModelFixture mainPageViewModelFixture =
-                new MainPageViewModelFixture(expectedIndoorHumidity: 55);
+            MainPageViewModel classUnderTest = new MainPageViewModel();
             bool eventRaised = false;
 
-            mainPageViewModelFixture.Target.PropertyChanged += (sender, args) =>
+            classUnderTest.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "IndoorHumidity")
                 {
@@ -167,12 +145,11 @@ namespace Tests.Component
             };
 
             // Act
-            mainPageViewModelFixture.Start();
-            Waiter.Until(() => eventRaised);
+            classUnderTest.IndoorHumidity = "55%";
 
             // Assert
             eventRaised.Should().BeTrue();
-            mainPageViewModelFixture.Target.IndoorHumidity.Should().Be("55%");
+            classUnderTest.IndoorHumidity.Should().Be("55%");
         }
     }
 }

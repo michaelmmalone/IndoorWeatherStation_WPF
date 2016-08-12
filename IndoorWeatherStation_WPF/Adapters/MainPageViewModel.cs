@@ -1,16 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using IndoorWeatherStation_WPF.ApplicationModel;
-using IndoorWeatherStation_WPF.Ports;
 
 namespace IndoorWeatherStation_WPF.Adapters
 {
+    //TODO: Apply whole value for date, temp and humid
     [DebuggerDisplay("Time={time}, Date={date}")]
     internal class MainPageViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private string time;
         private string date;
         private int outdoorTemperature;
@@ -18,42 +15,7 @@ namespace IndoorWeatherStation_WPF.Adapters
         private int indoorTemperature;
         private string indoorHumidity;
 
-        public MainPageViewModel(IWeatherStation weatherStation)
-        {
-            TimeFormatter timeFormatter = new TimeFormatter();
-            DateFormatter dateFormatter = new DateFormatter();
-            HumidityFormatter humidityFormatter = new HumidityFormatter();
-
-            weatherStation.MinuteChanged += (s, newTime) =>
-            {
-                this.Time = timeFormatter.Format(newTime);
-            };
-
-            weatherStation.DayChanged += (s, newDate) =>
-            {
-                this.Date = dateFormatter.Format(newDate);
-            };
-
-            weatherStation.OutdoorTemperatureChanged += (sender, newTemp) =>
-            {
-                this.OutdoorTemperature = newTemp;
-            };
-
-            weatherStation.OutdoorHumidityChanged += (sender, newHumidity) =>
-            {
-                this.OutdoorHumidity = humidityFormatter.Format(newHumidity);
-            };
-
-            weatherStation.IndoorTemperatureChanged += (sender, newTemp) =>
-            {
-                this.IndoorTemperature = newTemp;
-            };
-
-            weatherStation.IndoorHumidityChanged += (sender, newHumidity) =>
-            {
-                this.IndoorHumidity = humidityFormatter.Format(newHumidity);
-            };
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         #region IMainPageViewModel
 

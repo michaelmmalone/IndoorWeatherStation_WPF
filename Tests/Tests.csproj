@@ -71,7 +71,6 @@
     <Compile Include="Component\WeatherMonitorStrategyTests.cs" />
     <Compile Include="Component\WeatherMonitorTests.cs" />
     <Compile Include="Component\WeatherStationTests.cs" />
-    <Compile Include="Fixtures\MainPageViewModelFixture.cs" />
     <Compile Include="Fixtures\MinuteDayChangeMonitorFixture.cs" />
     <Compile Include="Fixtures\WeatherMonitorFixture.cs" />
     <Compile Include="Helper\Waiter.cs" />

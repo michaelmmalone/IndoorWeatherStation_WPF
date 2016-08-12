@@ -76,11 +76,6 @@ namespace IndoorWeatherStation_WPF.Simulators
             throw new NotImplementedException();
         }
 
-        public MainPageViewModel CreateViewModel()
-        {
-            return new MainPageViewModel(this);
-        }
-
         public void Dispose()
         {
             // Nothing to do.

@@ -1,7 +1,5 @@
 ﻿using System.Windows;
 using IndoorWeatherStation_WPF.Adapters;
-using IndoorWeatherStation_WPF.Ports;
-using IndoorWeatherStation_WPF.Simulators;
 
 namespace IndoorWeatherStation_WPF.UserInterface
 {
@@ -13,26 +11,14 @@ namespace IndoorWeatherStation_WPF.UserInterface
         public MainWindow()
         {
             InitializeComponent();
-
-            this.CleanUp();
-
-            this.weatherStation = new WeatherStation();
-            this.viewModel = this.weatherStation.CreateViewModel();
-            this.DataContext = this.viewModel;
-
-            this.weatherStation.Start();
         }
 
-        private void CleanUp()
+        internal void SetViewModel(MainPageViewModel mainPageViewModel)
         {
-            if (this.weatherStation != null)
-            {
-                this.weatherStation.Dispose();
-                this.weatherStation = null;
-            }
+            this.viewModel = mainPageViewModel;
+            this.DataContext = this.viewModel;
         }
 
         private MainPageViewModel viewModel;
-        private IWeatherStation weatherStation;
     }
 }
