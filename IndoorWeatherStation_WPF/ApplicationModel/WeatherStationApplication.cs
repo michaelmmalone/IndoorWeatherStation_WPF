@@ -28,7 +28,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
             weatherStation.OutdoorTemperatureChanged += (sender, newTemp) => viewModel.OutdoorTemperature = newTemp.Value; //TODO: should VM take value object?
             weatherStation.OutdoorHumidityChanged += (sender, newHumidity) => viewModel.OutdoorHumidity = newHumidity.Format(humidityFormatter);
             weatherStation.IndoorTemperatureChanged += (sender, newTemp) => viewModel.IndoorTemperature = newTemp.Value;
-            weatherStation.IndoorHumidityChanged += (sender, newHumidity) => viewModel.IndoorHumidity = humidityFormatter.Format(newHumidity);
+            weatherStation.IndoorHumidityChanged += (sender, newHumidity) => viewModel.IndoorHumidity = newHumidity.Format(humidityFormatter);
         }
     }
 }

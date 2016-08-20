@@ -5,17 +5,16 @@ using IndoorWeatherStation_WPF.Ports;
 
 namespace IndoorWeatherStation_WPF.ApplicationModel
 {
-    [DebuggerDisplay("lastSavedTemperature={lastSavedTemperature_New}, lastSavedHumidity={lastSavedHumidity_New}")]
+    [DebuggerDisplay("lastSavedTemperature={lastSavedTemperature}, lastSavedHumidity={lastSavedHumidity}")]
     internal class WeatherMonitor
     {
         private readonly IWeather weather;
         private readonly IWeatherMonitorStrategy monitorStrategy;
-        private Temperature lastSavedTemperature_New;
-        private Humidity lastSavedHumidity_New;
+        private Temperature lastSavedTemperature;
+        private Humidity lastSavedHumidity;
 
         public event EventHandler<Temperature> TemperatureChanged;
-        public event EventHandler<int> HumidityChanged;
-        public event EventHandler<Humidity> HumidityChanged_New;
+        public event EventHandler<Humidity> HumidityChanged;
 
         public WeatherMonitor(IWeather weather, IWeatherMonitorStrategy monitorStrategy)
         {
@@ -41,19 +40,11 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
             }
         }
 
-        private void RaiseHumidityChanged(int humidity)
+        private void RaiseHumidityChanged_New(Humidity humidity)
         {
             if (this.HumidityChanged != null)
             {
                 this.HumidityChanged(this, humidity);
-            }
-        }
-
-        private void RaiseHumidityChanged_New(Humidity humidity)
-        {
-            if (this.HumidityChanged_New != null)
-            {
-                this.HumidityChanged_New(this, humidity);
             }
         }
 
@@ -67,19 +58,18 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
 
         private void SendTemperatureUpdate(WeatherData weatherData)
         {
-            if (weatherData.Temperature_New != this.lastSavedTemperature_New)
+            if (weatherData.Temperature_New != this.lastSavedTemperature)
             {
-                this.lastSavedTemperature_New = weatherData.Temperature_New;
+                this.lastSavedTemperature = weatherData.Temperature_New;
                 this.RaiseTemperatureChanged(weatherData.Temperature_New);
             }
         }
 
         private void SendHumidityUpdate(WeatherData weatherData)
         {
-            if (weatherData.Humidity_New != this.lastSavedHumidity_New)
+            if (weatherData.Humidity_New != this.lastSavedHumidity)
             {
-                this.lastSavedHumidity_New = weatherData.Humidity_New;
-                this.RaiseHumidityChanged(weatherData.Humidity);
+                this.lastSavedHumidity = weatherData.Humidity_New;
                 this.RaiseHumidityChanged_New(weatherData.Humidity_New);
             }
         }

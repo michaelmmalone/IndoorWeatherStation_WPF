@@ -10,7 +10,7 @@ namespace IndoorWeatherStation_WPF.Ports
         event EventHandler<Temperature> OutdoorTemperatureChanged;
         event EventHandler<Humidity> OutdoorHumidityChanged;
         event EventHandler<Temperature> IndoorTemperatureChanged;
-        event EventHandler<int> IndoorHumidityChanged;
+        event EventHandler<Humidity> IndoorHumidityChanged;
 
         void Start();
         void Stop();
