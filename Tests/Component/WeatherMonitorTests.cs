@@ -20,7 +20,7 @@ namespace Tests.Component
             WeatherData expected = new WeatherData(new Temperature(52), new Humidity(0));
 
             weatherMonitorFixture.SetExpectedWeatherData(expected);
-            weatherMonitorFixture.Target.TemperatureChanged_New += (sender, newTemp) => result = newTemp;
+            weatherMonitorFixture.Target.TemperatureChanged += (sender, newTemp) => result = newTemp;
 
             // Act
             weatherMonitorFixture.Target.Start(TimeSpan.FromMilliseconds(0) /*not used*/);

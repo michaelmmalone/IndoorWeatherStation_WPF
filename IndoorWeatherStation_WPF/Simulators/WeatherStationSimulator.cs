@@ -45,8 +45,8 @@ namespace IndoorWeatherStation_WPF.Simulators
 
         public event EventHandler<Temperature> OutdoorTemperatureChanged
         {
-            add { this.outdoorWeatherMonitor.TemperatureChanged_New += value; }
-            remove { this.outdoorWeatherMonitor.TemperatureChanged_New -= value; }
+            add { this.outdoorWeatherMonitor.TemperatureChanged += value; }
+            remove { this.outdoorWeatherMonitor.TemperatureChanged -= value; }
         }
 
         public event EventHandler<int> OutdoorHumidityChanged
@@ -57,8 +57,8 @@ namespace IndoorWeatherStation_WPF.Simulators
 
         public event EventHandler<Temperature> IndoorTemperatureChanged
         {
-            add { this.indoorWeatherMonitor.TemperatureChanged_New += value; }
-            remove { this.indoorWeatherMonitor.TemperatureChanged_New -= value; }
+            add { this.indoorWeatherMonitor.TemperatureChanged += value; }
+            remove { this.indoorWeatherMonitor.TemperatureChanged -= value; }
         }
 
         public event EventHandler<int> IndoorHumidityChanged

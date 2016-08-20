@@ -13,8 +13,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
         private Temperature lastSavedTemperature_New;
         private Humidity lastSavedHumidity_New;
 
-        public event EventHandler<int> TemperatureChanged;
-        public event EventHandler<Temperature> TemperatureChanged_New;
+        public event EventHandler<Temperature> TemperatureChanged;
         public event EventHandler<int> HumidityChanged;
         public event EventHandler<Humidity> HumidityChanged_New;
 
@@ -34,19 +33,11 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
             this.monitorStrategy.StopMonitoring();
         }
 
-        private void RaiseTemperatureChanged(int temperature)
+        private void RaiseTemperatureChanged(Temperature temperature)
         {
             if (this.TemperatureChanged != null)
             {
                 this.TemperatureChanged(this, temperature);
-            }
-        }
-
-        private void RaiseTemperatureChanged(Temperature temperature)
-        {
-            if (this.TemperatureChanged_New != null)
-            {
-                this.TemperatureChanged_New(this, temperature);
             }
         }
 
@@ -79,7 +70,6 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
             if (weatherData.Temperature_New != this.lastSavedTemperature_New)
             {
                 this.lastSavedTemperature_New = weatherData.Temperature_New;
-                this.RaiseTemperatureChanged(weatherData.Temperature);
                 this.RaiseTemperatureChanged(weatherData.Temperature_New);
             }
         }
