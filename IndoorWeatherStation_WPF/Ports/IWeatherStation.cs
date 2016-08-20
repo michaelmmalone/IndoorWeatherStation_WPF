@@ -1,14 +1,15 @@
 ﻿using System;
+using IndoorWeatherStation_WPF.DomainModel;
 
 namespace IndoorWeatherStation_WPF.Ports
 {
     internal interface IWeatherStation : IDisposable
     {
-        event EventHandler<DateTime> MinuteChanged;
+        event EventHandler<Time> MinuteChanged;
         event EventHandler<DateTime> DayChanged;
-        event EventHandler<int> OutdoorTemperatureChanged;
+        event EventHandler<Temperature> OutdoorTemperatureChanged;
         event EventHandler<int> OutdoorHumidityChanged;
-        event EventHandler<int> IndoorTemperatureChanged;
+        event EventHandler<Temperature> IndoorTemperatureChanged;
         event EventHandler<int> IndoorHumidityChanged;
 
         void Start();

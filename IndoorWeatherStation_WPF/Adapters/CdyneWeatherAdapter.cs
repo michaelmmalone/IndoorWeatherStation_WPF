@@ -43,8 +43,8 @@ namespace IndoorWeatherStation_WPF.Adapters
         private static WeatherData CreateWeatherData(WeatherReturn weatherFromService)
         {
             return new WeatherData(
-                int.Parse(weatherFromService.Temperature),
-                int.Parse(weatherFromService.RelativeHumidity));
+                new Temperature(int.Parse(weatherFromService.Temperature)),
+                new Humidity(int.Parse(weatherFromService.RelativeHumidity)));
         }
 
         private bool IsDisposed { get; set; }

@@ -1,11 +1,12 @@
 using System;
+using IndoorWeatherStation_WPF.DomainModel;
 using IndoorWeatherStation_WPF.Ports;
 
 namespace Tests.Mocks
 {
     internal class IWeatherStationMock : IWeatherStation
     {
-        public void RaiseMinuteChanged(DateTime newTime)
+        public void RaiseMinuteChanged(Time newTime)
         {
             if (this.MinuteChanged != null)
             {
@@ -21,7 +22,7 @@ namespace Tests.Mocks
             }
         }
 
-        public void RaiseOutdoorTemperatureChanged(int newTemperature)
+        public void RaiseOutdoorTemperatureChanged(Temperature newTemperature)
         {
             if (this.OutdoorTemperatureChanged != null)
             {
@@ -37,7 +38,7 @@ namespace Tests.Mocks
             }
         }
 
-        public void RaiseIndoorTemperatureChanged(int newTemperature)
+        public void RaiseIndoorTemperatureChanged(Temperature newTemperature)
         {
             if (this.IndoorTemperatureChanged != null)
             {
@@ -55,11 +56,12 @@ namespace Tests.Mocks
 
         #region IWeatherStation
 
-        public event EventHandler<DateTime> MinuteChanged;
+        public event EventHandler<Time> MinuteChanged;
         public event EventHandler<DateTime> DayChanged;
-        public event EventHandler<int> OutdoorTemperatureChanged;
+        public event EventHandler<Time> DayChanged_New;
+        public event EventHandler<Temperature> OutdoorTemperatureChanged;
         public event EventHandler<int> OutdoorHumidityChanged;
-        public event EventHandler<int> IndoorTemperatureChanged;
+        public event EventHandler<Temperature> IndoorTemperatureChanged;
         public event EventHandler<int> IndoorHumidityChanged;
 
         public void Start()

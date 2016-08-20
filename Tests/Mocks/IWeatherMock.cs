@@ -10,9 +10,9 @@ namespace Tests.Mocks
 
         #region IWeather
 
-        public Task<int> GetTemperatureAsync()
+        public Task<Temperature> GetTemperatureAsync()
         {
-            return Task.FromResult(this.GetWeatherAsync_Returns.Temperature);
+            return Task.FromResult(this.GetWeatherAsync_Returns.Temperature_New);
         }
 
         public Task<WeatherData> GetWeatherAsync()

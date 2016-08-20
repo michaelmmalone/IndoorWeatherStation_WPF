@@ -51,12 +51,12 @@ namespace IndoorWeatherStation_WPF.Adapters
                 if (temp != null && humidity != null)
                 {
                     return await Task.FromResult(new WeatherData(
-                        int.Parse(temp), 
-                        int.Parse(humidity)));
+                        new Temperature(int.Parse(temp)), 
+                        new Humidity(int.Parse(humidity))));
                 }
             }
 
-            return await Task.FromResult(new WeatherData(0, 0));
+            return await Task.FromResult(WeatherData.Empty);
         }
 
         public void Dispose()

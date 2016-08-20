@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using IndoorWeatherStation_WPF.DomainModel;
 using IndoorWeatherStation_WPF.Ports;
 
 namespace IndoorWeatherStation_WPF.ApplicationModel
@@ -7,7 +8,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
     [DebuggerDisplay("lastSavedMinute={lastSavedMinute}, lastSavedDay={lastSavedDay}")]
     internal class MinuteDayChangeMonitor
     {
-        public event EventHandler<DateTime> MinuteChanged;
+        public event EventHandler<Time> MinuteChanged;
         public event EventHandler<DateTime> DayChanged;
 
         private int lastSavedMinute;
@@ -42,7 +43,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
         {
             if (this.MinuteChanged != null)
             {
-                this.MinuteChanged(this, newTime);
+                this.MinuteChanged(this, new Time(newTime.Hour, newTime.Minute));
             }
         }
 

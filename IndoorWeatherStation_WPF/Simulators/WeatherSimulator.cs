@@ -24,8 +24,8 @@ namespace IndoorWeatherStation_WPF.Simulators
         public Task<WeatherData> GetWeatherAsync()
         {
             return Task.FromResult(new WeatherData(
-                WeatherSimulator.RandomNumber.Next(32, 76),
-                WeatherSimulator.RandomNumber.Next(10, 101)));
+                new Temperature(WeatherSimulator.RandomNumber.Next(32, 76)),
+                new Humidity(WeatherSimulator.RandomNumber.Next(10, 101))));
         }
 
         public void Dispose()

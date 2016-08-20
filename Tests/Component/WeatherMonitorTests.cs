@@ -16,18 +16,18 @@ namespace Tests.Component
         {
             // Arrange
             WeatherMonitorFixture weatherMonitorFixture = new WeatherMonitorFixture();
-            int result = 0;
-            WeatherData expected = new WeatherData(temperature: 52, humidity: 0);
+            Temperature result = null;
+            WeatherData expected = new WeatherData(new Temperature(52), new Humidity(0));
 
             weatherMonitorFixture.SetExpectedWeatherData(expected);
-            weatherMonitorFixture.Target.TemperatureChanged += (sender, newTemp) => result = newTemp;
+            weatherMonitorFixture.Target.TemperatureChanged_New += (sender, newTemp) => result = newTemp;
 
             // Act
             weatherMonitorFixture.Target.Start(TimeSpan.FromMilliseconds(0) /*not used*/);
-            Waiter.Until(() => result != 0);
+            Waiter.Until(() => result != null);
 
             // Assert
-            result.Should().Be(expected.Temperature);
+            result.Should().Be(expected.Temperature_New);
         }
 
         [TestMethod]
@@ -36,18 +36,18 @@ namespace Tests.Component
         {
             // Arrange
             WeatherMonitorFixture weatherMonitorFixture = new WeatherMonitorFixture();
-            int result = 0;
-            WeatherData expected = new WeatherData(temperature: 0, humidity: 60);
+            Humidity result = null;
+            WeatherData expected = new WeatherData(new Temperature(0), new Humidity(60));
 
             weatherMonitorFixture.SetExpectedWeatherData(expected);
-            weatherMonitorFixture.Target.HumidityChanged += (sender, newHumidity) => result = newHumidity;
+            weatherMonitorFixture.Target.HumidityChanged_New += (sender, newHumidity) => result = newHumidity;
 
             // Act
             weatherMonitorFixture.Target.Start(TimeSpan.FromMilliseconds(0) /*not used*/);
-            Waiter.Until(() => result != 0);
+            Waiter.Until(() => result != null);
 
             // Assert
-            result.Should().Be(expected.Humidity);
+            result.Should().Be(expected.Humidity_New);
         }
     }
 }

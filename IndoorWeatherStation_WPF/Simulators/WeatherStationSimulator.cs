@@ -1,6 +1,7 @@
 ﻿using System;
 using IndoorWeatherStation_WPF.Adapters;
 using IndoorWeatherStation_WPF.ApplicationModel;
+using IndoorWeatherStation_WPF.DomainModel;
 using IndoorWeatherStation_WPF.Ports;
 
 namespace IndoorWeatherStation_WPF.Simulators
@@ -28,7 +29,7 @@ namespace IndoorWeatherStation_WPF.Simulators
 
         #region IWeatherStation
 
-        public event EventHandler<DateTime> MinuteChanged
+        public event EventHandler<Time> MinuteChanged
         {
             add { this.minuteDayChangeMonitor.MinuteChanged += value; }
             remove { this.minuteDayChangeMonitor.MinuteChanged -= value; }
@@ -40,10 +41,12 @@ namespace IndoorWeatherStation_WPF.Simulators
             remove { this.minuteDayChangeMonitor.DayChanged -= value; }
         }
 
-        public event EventHandler<int> OutdoorTemperatureChanged
+        public event EventHandler<Time> DayChanged_New;
+
+        public event EventHandler<Temperature> OutdoorTemperatureChanged
         {
-            add { this.outdoorWeatherMonitor.TemperatureChanged += value; }
-            remove { this.outdoorWeatherMonitor.TemperatureChanged -= value; }
+            add { this.outdoorWeatherMonitor.TemperatureChanged_New += value; }
+            remove { this.outdoorWeatherMonitor.TemperatureChanged_New -= value; }
         }
 
         public event EventHandler<int> OutdoorHumidityChanged
@@ -52,10 +55,10 @@ namespace IndoorWeatherStation_WPF.Simulators
             remove { this.outdoorWeatherMonitor.HumidityChanged += value; }
         }
 
-        public event EventHandler<int> IndoorTemperatureChanged
+        public event EventHandler<Temperature> IndoorTemperatureChanged
         {
-            add { this.indoorWeatherMonitor.TemperatureChanged += value; }
-            remove { this.indoorWeatherMonitor.TemperatureChanged -= value; }
+            add { this.indoorWeatherMonitor.TemperatureChanged_New += value; }
+            remove { this.indoorWeatherMonitor.TemperatureChanged_New -= value; }
         }
 
         public event EventHandler<int> IndoorHumidityChanged

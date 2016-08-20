@@ -17,8 +17,6 @@ namespace IndoorWeatherStation_WPF.Adapters
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        #region IMainPageViewModel
-
         public string Time
         {
             get { return this.time; }
@@ -96,8 +94,6 @@ namespace IndoorWeatherStation_WPF.Adapters
                 this.OnPropertyChanged();
             }
         }
-
-        #endregion IMainPageViewModel
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
