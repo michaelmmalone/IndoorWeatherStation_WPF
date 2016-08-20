@@ -1,0 +1,4 @@
+timer +  get async could be abstracted in something like WeatherDataSource which has an event
+when the interval is up.
+
+Should there be class for date, time, temp, humid?  If so how does that affect the formatters?

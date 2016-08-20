@@ -73,6 +73,7 @@
     <Compile Include="Component\WeatherStationTests.cs" />
     <Compile Include="Fixtures\MinuteDayChangeMonitorFixture.cs" />
     <Compile Include="Fixtures\WeatherMonitorFixture.cs" />
+    <Compile Include="Helper\EqualityTester.cs" />
     <Compile Include="Helper\Waiter.cs" />
     <Compile Include="Mocks\IDateTimeSourceMock.cs" />
     <Compile Include="Mocks\IMinuteDayChangeMonitorStrategyMock.cs" />
@@ -83,7 +84,11 @@
     <Compile Include="Unit\DateFormatterTests.cs" />
     <Compile Include="Unit\DateTimeSourceTests.cs" />
     <Compile Include="Unit\HumidityFormatterTests.cs" />
+    <Compile Include="Unit\HumidityTests.cs" />
     <Compile Include="Unit\TimeFormatterTests.cs" />
+    <Compile Include="Unit\DateTests.cs" />
+    <Compile Include="Unit\TimeTests.cs" />
+    <Compile Include="Unit\TemperatureTests.cs" />
     <Compile Include="Unit\WeatherSimulatorTests.cs" />
     <Compile Include="Unit\WeatherStationSimulatorTests.cs" />
   </ItemGroup>
