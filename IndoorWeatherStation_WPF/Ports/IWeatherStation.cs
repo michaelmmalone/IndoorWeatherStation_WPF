@@ -8,7 +8,7 @@ namespace IndoorWeatherStation_WPF.Ports
         event EventHandler<Time> MinuteChanged;
         event EventHandler<DateTime> DayChanged;
         event EventHandler<Temperature> OutdoorTemperatureChanged;
-        event EventHandler<int> OutdoorHumidityChanged;
+        event EventHandler<Humidity> OutdoorHumidityChanged;
         event EventHandler<Temperature> IndoorTemperatureChanged;
         event EventHandler<int> IndoorHumidityChanged;
 

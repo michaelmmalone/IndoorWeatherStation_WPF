@@ -36,10 +36,10 @@ namespace IndoorWeatherStation_WPF.Adapters
             remove { this.outdoorWeatherMonitor.TemperatureChanged -= value; }
         }
 
-        public event EventHandler<int> OutdoorHumidityChanged
+        public event EventHandler<Humidity> OutdoorHumidityChanged
         {
-            add { this.outdoorWeatherMonitor.HumidityChanged += value; }
-            remove { this.outdoorWeatherMonitor.HumidityChanged += value; }
+            add { this.outdoorWeatherMonitor.HumidityChanged_New += value; }
+            remove { this.outdoorWeatherMonitor.HumidityChanged_New += value; }
         }
 
         public event EventHandler<Temperature> IndoorTemperatureChanged

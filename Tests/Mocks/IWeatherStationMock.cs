@@ -30,7 +30,7 @@ namespace Tests.Mocks
             }
         }
 
-        public void RaiseOutdoorHumidityChanged(int newHumidity)
+        public void RaiseOutdoorHumidityChanged(Humidity newHumidity)
         {
             if (this.OutdoorHumidityChanged != null)
             {
@@ -60,7 +60,7 @@ namespace Tests.Mocks
         public event EventHandler<DateTime> DayChanged;
         public event EventHandler<Time> DayChanged_New;
         public event EventHandler<Temperature> OutdoorTemperatureChanged;
-        public event EventHandler<int> OutdoorHumidityChanged;
+        public event EventHandler<Humidity> OutdoorHumidityChanged;
         public event EventHandler<Temperature> IndoorTemperatureChanged;
         public event EventHandler<int> IndoorHumidityChanged;
 

@@ -1,4 +1,5 @@
 using System;
+using IndoorWeatherStation_WPF.ApplicationModel;
 
 namespace IndoorWeatherStation_WPF.DomainModel
 {
@@ -10,6 +11,11 @@ namespace IndoorWeatherStation_WPF.DomainModel
         }
 
         public int Value { get; private set; }
+
+        public string Format(HumidityFormatter formatter)
+        {
+            return formatter.Format(this.Value);
+        }
 
         #region Equality
 

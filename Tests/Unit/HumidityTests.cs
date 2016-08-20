@@ -24,6 +24,20 @@ namespace Tests.Unit
         }
 
         [TestMethod]
+        public void Format_ValidHumidity_ReturnsHumidityAsStringWithDayOfWeek()
+        {
+            // Arrange
+            Humidity classUnderTest = new Humidity(78);
+            HumidityFormatter formatter = new HumidityFormatter();
+
+            // Act
+            string result = classUnderTest.Format(formatter);
+
+            // Assert
+            result.Should().Be("78%");
+        }
+
+        [TestMethod]
         public void HumidityEquality_SameTypeAndSameState_Equal()
         {
             EqualityTester.Act(54, 54, true);
