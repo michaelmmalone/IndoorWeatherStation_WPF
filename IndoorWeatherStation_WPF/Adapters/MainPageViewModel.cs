@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 
 namespace IndoorWeatherStation_WPF.Adapters
 {
-    //TODO: Apply whole value for date, temp and humid
     [DebuggerDisplay("Time={time}, Date={date}")]
     internal class MainPageViewModel : INotifyPropertyChanged
     {
