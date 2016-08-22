@@ -12,7 +12,7 @@ namespace Tests.Mocks
 
         public Task<Temperature> GetTemperatureAsync()
         {
-            return Task.FromResult(this.GetWeatherAsync_Returns.Temperature_New);
+            return Task.FromResult(this.GetWeatherAsync_Returns.Temperature);
         }
 
         public Task<WeatherData> GetWeatherAsync()

@@ -27,7 +27,7 @@ namespace Tests.Component
             Waiter.Until(() => result != null);
 
             // Assert
-            result.Should().Be(expected.Temperature_New);
+            result.Should().Be(expected.Temperature);
         }
 
         [TestMethod]
@@ -47,7 +47,7 @@ namespace Tests.Component
             Waiter.Until(() => result != null);
 
             // Assert
-            result.Should().Be(expected.Humidity_New);
+            result.Should().Be(expected.Humidity);
         }
     }
 }

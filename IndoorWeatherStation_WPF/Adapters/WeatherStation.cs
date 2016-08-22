@@ -24,7 +24,7 @@ namespace IndoorWeatherStation_WPF.Adapters
             remove { this.minuteDayChangeMonitor.MinuteChanged -= value; }
         }
 
-        public event EventHandler<DateTime> DayChanged
+        public event EventHandler<Date> DayChanged
         {
             add { this.minuteDayChangeMonitor.DayChanged += value; }
             remove { this.minuteDayChangeMonitor.DayChanged -= value; }

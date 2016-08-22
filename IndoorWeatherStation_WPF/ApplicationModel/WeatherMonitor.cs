@@ -40,7 +40,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
             }
         }
 
-        private void RaiseHumidityChanged_New(Humidity humidity)
+        private void RaiseHumidityChanged(Humidity humidity)
         {
             if (this.HumidityChanged != null)
             {
@@ -58,19 +58,19 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
 
         private void SendTemperatureUpdate(WeatherData weatherData)
         {
-            if (weatherData.Temperature_New != this.lastSavedTemperature)
+            if (weatherData.Temperature != this.lastSavedTemperature)
             {
-                this.lastSavedTemperature = weatherData.Temperature_New;
-                this.RaiseTemperatureChanged(weatherData.Temperature_New);
+                this.lastSavedTemperature = weatherData.Temperature;
+                this.RaiseTemperatureChanged(weatherData.Temperature);
             }
         }
 
         private void SendHumidityUpdate(WeatherData weatherData)
         {
-            if (weatherData.Humidity_New != this.lastSavedHumidity)
+            if (weatherData.Humidity != this.lastSavedHumidity)
             {
-                this.lastSavedHumidity = weatherData.Humidity_New;
-                this.RaiseHumidityChanged_New(weatherData.Humidity_New);
+                this.lastSavedHumidity = weatherData.Humidity;
+                this.RaiseHumidityChanged(weatherData.Humidity);
             }
         }
     }

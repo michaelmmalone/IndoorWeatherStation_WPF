@@ -35,13 +35,11 @@ namespace IndoorWeatherStation_WPF.Simulators
             remove { this.minuteDayChangeMonitor.MinuteChanged -= value; }
         }
 
-        public event EventHandler<DateTime> DayChanged
+        event EventHandler<Date> IWeatherStation.DayChanged
         {
             add { this.minuteDayChangeMonitor.DayChanged += value; }
             remove { this.minuteDayChangeMonitor.DayChanged -= value; }
         }
-
-        public event EventHandler<Time> DayChanged_New;
 
         public event EventHandler<Temperature> OutdoorTemperatureChanged
         {

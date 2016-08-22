@@ -14,7 +14,7 @@ namespace Tests.Mocks
             }
         }
 
-        public void RaiseDayChanged(DateTime newDate)
+        public void RaiseDayChanged(Date newDate)
         {
             if (this.DayChanged != null)
             {
@@ -57,8 +57,7 @@ namespace Tests.Mocks
         #region IWeatherStation
 
         public event EventHandler<Time> MinuteChanged;
-        public event EventHandler<DateTime> DayChanged;
-        public event EventHandler<Time> DayChanged_New;
+        public event EventHandler<Date> DayChanged;
         public event EventHandler<Temperature> OutdoorTemperatureChanged;
         public event EventHandler<Humidity> OutdoorHumidityChanged;
         public event EventHandler<Temperature> IndoorTemperatureChanged;

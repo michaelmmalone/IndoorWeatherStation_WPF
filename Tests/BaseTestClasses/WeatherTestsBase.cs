@@ -15,8 +15,8 @@ namespace Tests.BaseTestClasses
                 WeatherData result = target.GetWeatherAsync().Result;
 
                 // Assert
-                result.Humidity_New.Should().NotBe(0);
-                result.Temperature_New.Should().NotBe(0);
+                result.Humidity.Should().NotBe(0);
+                result.Temperature.Should().NotBe(0);
             }
         }
 

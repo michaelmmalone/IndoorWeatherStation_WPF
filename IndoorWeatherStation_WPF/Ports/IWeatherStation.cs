@@ -6,7 +6,7 @@ namespace IndoorWeatherStation_WPF.Ports
     internal interface IWeatherStation : IDisposable
     {
         event EventHandler<Time> MinuteChanged;
-        event EventHandler<DateTime> DayChanged;
+        event EventHandler<Date> DayChanged;
         event EventHandler<Temperature> OutdoorTemperatureChanged;
         event EventHandler<Humidity> OutdoorHumidityChanged;
         event EventHandler<Temperature> IndoorTemperatureChanged;

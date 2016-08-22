@@ -9,7 +9,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
     internal class MinuteDayChangeMonitor
     {
         public event EventHandler<Time> MinuteChanged;
-        public event EventHandler<DateTime> DayChanged;
+        public event EventHandler<Date> DayChanged;
 
         private int lastSavedMinute;
         private int lastSavedDay;
@@ -51,7 +51,7 @@ namespace IndoorWeatherStation_WPF.ApplicationModel
         {
             if (this.DayChanged != null)
             {
-                this.DayChanged(this, newDate);
+                this.DayChanged(this, new Date(newDate.Month, newDate.Day, newDate.Year));
             }
         }
 
