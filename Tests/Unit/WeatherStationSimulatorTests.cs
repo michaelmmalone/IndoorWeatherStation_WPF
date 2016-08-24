@@ -8,7 +8,6 @@ namespace Tests.Unit
     [TestClass]
     public class WeatherStationSimulatorTests : WeatherStationTestsBase
     {
-        //TODO: try putting in base!
         [TestMethod]
         [TestCategory("Unit")]
         public override void MinuteChanged_RaisedWhenStartIsCalled()
